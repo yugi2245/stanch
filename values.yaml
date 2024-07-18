@@ -3,17 +3,10 @@
 # Declare variables to be passed into your templates.
 
 # Configure external database host
- dbHost: "stanch-docker-rds.cl6wu64ug0k7.ap-south-2.rds.amazonaws.com"
- dbPort: 3306
- dbRootUser: "root"
- dbRootPassword: "Du4Y0G4iBHfU0rrgNHDJ"
-
-frappeApp:
-  image:
-    repository: 582888538834.dkr.ecr.ap-south-2.amazonaws.com/stanchrepo
-    tag: latest
-    pullPolicy: Always
-
+# dbHost: ""
+# dbPort: 3306
+# dbRootUser: ""
+# dbRootPassword: ""
 
 nginx:
   replicaCount: 1
@@ -21,9 +14,6 @@ nginx:
     repository: frappe/erpnext-nginx
     tag: v14.0.0
     pullPolicy: IfNotPresent
-    # repository: 582888538834.dkr.ecr.ap-south-2.amazonaws.com/stanchrepo
-    # tag: latest
-    # pullPolicy: Always
   # config: |
   #   # custom template /etc/nginx/templates/default.conf.template
   #   # https://github.com/nginxinc/docker-nginx-unprivileged/blob/main/stable/alpine/20-envsubst-on-templates.sh
@@ -231,13 +221,13 @@ persistence:
     enabled: true
     # existingClaim: ""
     size: 8Gi
-    storageClass: "efs-stanch"
+    # storageClass: "nfs"
   logs:
     # Container based log search and analytics stack recommended
     enabled: false
     # existingClaim: ""
     size: 8Gi
-    storageClass: "efs-stanch"
+    # storageClass: "nfs"
 
 # Ingress
 ingress:
@@ -347,48 +337,48 @@ securityContext:
 redis-cache:
   # https://github.com/bitnami/charts/tree/master/bitnami/redis
   enabled: true
-  host: "18.61.85.3"
+  # host: ""
   architecture: standalone
   auth:
     enabled: false
     sentinal: false
   master:
     containerPorts:
-      redis: 6380
+      redis: 6379
     persistence:
       enabled: false
 
 redis-queue:
   # https://github.com/bitnami/charts/tree/master/bitnami/redis
   enabled: true
-  host: "18.61.85.3"
+  # host: ""
   architecture: standalone
   auth:
     enabled: false
     sentinal: false
   master:
     containerPorts:
-      redis: 6381
+      redis: 6379
     persistence:
       enabled: false
 
 redis-socketio:
   # https://github.com/bitnami/charts/tree/master/bitnami/redis
   enabled: true
-  host: "18.61.85.3"
+  # host: ""
   architecture: standalone
   auth:
     enabled: false
     sentinal: false
   master:
     containerPorts:
-      redis: 3000
+      redis: 6379
     persistence:
       enabled: false
 
 mariadb:
   # https://github.com/bitnami/charts/tree/master/bitnami/mariadb
-  enabled: false
+  enabled: true
   auth:
     rootPassword: "changeit"
     username: "erpnext"
