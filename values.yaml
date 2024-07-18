@@ -8,12 +8,17 @@
  dbRootUser: "root"
  dbRootPassword: "Du4Y0G4iBHfU0rrgNHDJ"
 
+
+
 nginx:
   replicaCount: 1
   image:
-    repository: 582888538834.dkr.ecr.ap-south-2.amazonaws.com/stanchrepo
-    tag: latest
-    pullPolicy: Always
+    repository: frappe/erpnext-nginx
+    tag: v14.0.0
+    pullPolicy: IfNotPresent
+    # repository: 582888538834.dkr.ecr.ap-south-2.amazonaws.com/stanchrepo
+    # tag: latest
+    # pullPolicy: Always
   # config: |
   #   # custom template /etc/nginx/templates/default.conf.template
   #   # https://github.com/nginxinc/docker-nginx-unprivileged/blob/main/stable/alpine/20-envsubst-on-templates.sh
