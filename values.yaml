@@ -10,43 +10,43 @@
 
 
 
-nginx:
-  replicaCount: 1
-  image:
-    repository: frappe/erpnext-nginx
-    tag: v14.0.0
-    pullPolicy: IfNotPresent
+#nginx:
+#  replicaCount: 1
+#  image:
+#    repository: frappe/erpnext-nginx
+#    tag: v14.0.0
+#    pullPolicy: IfNotPresent
     # repository: 582888538834.dkr.ecr.ap-south-2.amazonaws.com/stanchrepo
     # tag: latest
     # pullPolicy: Always
   # config: |
   #   # custom template /etc/nginx/templates/default.conf.template
   #   # https://github.com/nginxinc/docker-nginx-unprivileged/blob/main/stable/alpine/20-envsubst-on-templates.sh
-  environment:
-    upstreamRealIPAddress: "127.0.0.1"
-    upstreamRealIPRecursive: "off"
-    upstreamRealIPHeader: "X-Forwarded-For"
-    frappeSiteNameHeader: "$host"
-  livenessProbe:
-    tcpSocket:
-      port: 8080
-    initialDelaySeconds: 5
-    periodSeconds: 10
-  readinessProbe:
-    tcpSocket:
-      port: 8080
-    initialDelaySeconds: 5
-    periodSeconds: 10
-  service:
-    type: ClusterIP
-    port: 8080
-  resources: {}
-  nodeSelector: {}
-  tolerations: []
-  affinity: {}
-  envVars: []
-  initContainers: []
-  sidecars: []
+#  environment:
+#    upstreamRealIPAddress: "127.0.0.1"
+#    upstreamRealIPRecursive: "off"
+#    upstreamRealIPHeader: "X-Forwarded-For"
+#    frappeSiteNameHeader: "$host"
+#  livenessProbe:
+#    tcpSocket:
+#      port: 8080
+#    initialDelaySeconds: 5
+#    periodSeconds: 10
+#  readinessProbe:
+#    tcpSocket:
+#      port: 8080
+#    initialDelaySeconds: 5
+#    periodSeconds: 10
+#  service:
+#    type: ClusterIP
+#    port: 8080
+#  resources: {}
+#  nodeSelector: {}
+#  tolerations: []
+#  affinity: {}
+#  envVars: []
+#  initContainers: []
+#  sidecars: []
 
 worker:
   image:
