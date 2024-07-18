@@ -337,42 +337,42 @@ securityContext:
 redis-cache:
   # https://github.com/bitnami/charts/tree/master/bitnami/redis
   enabled: true
-  # host: ""
+  host: "18.61.85.3"
   architecture: standalone
   auth:
     enabled: false
     sentinal: false
   master:
     containerPorts:
-      redis: 6379
+      redis: 6380
     persistence:
       enabled: false
 
 redis-queue:
   # https://github.com/bitnami/charts/tree/master/bitnami/redis
   enabled: true
-  # host: ""
+  host: "18.61.85.3"
   architecture: standalone
   auth:
     enabled: false
     sentinal: false
   master:
     containerPorts:
-      redis: 6379
+      redis: 6381
     persistence:
       enabled: false
 
 redis-socketio:
   # https://github.com/bitnami/charts/tree/master/bitnami/redis
   enabled: true
-  # host: ""
+  host: "18.61.85.3"
   architecture: standalone
   auth:
     enabled: false
     sentinal: false
   master:
     containerPorts:
-      redis: 6379
+      redis: 3000
     persistence:
       enabled: false
 
