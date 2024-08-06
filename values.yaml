@@ -9,11 +9,11 @@ dbRootUser: "root"
 dbRootPassword: "Du4Y0G4iBHfU0rrgNHDJ"
 
 nginx:
-  replicaCount: 1
+  replicaCount: 3
   image:
     repository: frappe/erpnext-nginx
     tag: v14.0.0
-    pullPolicy: IfNotPresent
+    pullPolicy: Always
     # repository: 582888538834.dkr.ecr.ap-south-2.amazonaws.com/stanchrepo
     # tag: latest
     # pullPolicy: Always
@@ -53,7 +53,7 @@ worker:
     pullPolicy: Always
 
   gunicorn:
-    replicaCount: 1
+    replicaCount: 3
     livenessProbe:
       tcpSocket:
         port: 8000
@@ -91,7 +91,7 @@ worker:
     sidecars: []
 
   default:
-    replicaCount: 1
+    replicaCount: 3
     resources: {}
     nodeSelector: {}
     tolerations: []
@@ -107,7 +107,7 @@ worker:
     sidecars: []
 
   short:
-    replicaCount: 1
+    replicaCount: 3
     resources: {}
     nodeSelector: {}
     tolerations: []
@@ -123,7 +123,7 @@ worker:
     sidecars: []
 
   long:
-    replicaCount: 1
+    replicaCount: 3
     resources: {}
     nodeSelector: {}
     tolerations: []
@@ -139,7 +139,7 @@ worker:
     sidecars: []
 
   scheduler:
-    replicaCount: 1
+    replicaCount: 3
     resources: {}
     nodeSelector: {}
     tolerations: []
@@ -193,7 +193,7 @@ worker:
     periodSeconds: 5
 
 socketio:
-  replicaCount: 1
+  replicaCount: 3
   livenessProbe:
     tcpSocket:
       port: 9000
@@ -331,6 +331,7 @@ image:
   repository: 582888538834.dkr.ecr.ap-south-2.amazonaws.com/stanchrepo
   tag: latest
   pullPolicy: Always
+  replicaCount: 3
 
 serviceAccount:
   # Specifies whether a service account should be created
