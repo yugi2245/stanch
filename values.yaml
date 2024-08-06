@@ -318,9 +318,19 @@ jobs:
     tolerations: []
     affinity: {}
 
-imagePullSecrets: []
-nameOverride: ""
-fullnameOverride: ""
+#imagePullSecrets: []
+#nameOverride: ""
+#fullnameOverride: ""
+
+fullnameOverride: 'stanchapp01'
+
+imagePullSecrets:
+  - name: ecr-registry-secret
+
+image:
+  repository: 582888538834.dkr.ecr.ap-south-2.amazonaws.com/stanchrepo
+  tag: latest
+  pullPolicy: Always
 
 serviceAccount:
   # Specifies whether a service account should be created
