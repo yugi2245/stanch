@@ -50,7 +50,7 @@ worker:
   image:
     repository: frappe/erpnext-worker
     tag: v14.0.0
-    pullPolicy: IfNotPresent
+    pullPolicy: Always
 
   gunicorn:
     replicaCount: 1
@@ -207,7 +207,7 @@ socketio:
   image:
     repository: frappe/frappe-socketio
     tag: v14.0.2
-    pullPolicy: IfNotPresent
+    pullPolicy: Always
   resources: {}
   nodeSelector: {}
   tolerations: []
@@ -224,13 +224,13 @@ persistence:
     enabled: true
     # existingClaim: ""
     size: 8Gi
-    storageClass: "efs-stanch-new"
+    storageClass: "efs-sc"
   logs:
     # Container based log search and analytics stack recommended
-    enabled: false
+    enabled: true
     # existingClaim: ""
     size: 8Gi
-    storageClass: "efs-stanch-new"
+    storageClass: "efs-sc"
 
 # Ingress
 ingress:
