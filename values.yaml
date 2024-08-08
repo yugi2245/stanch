@@ -48,8 +48,11 @@ nginx:
 
 worker:
   image:
-    repository: frappe/erpnext-worker
-    tag: v14.0.0
+    #repository: frappe/erpnext-worker
+    #tag: v14.0.0
+    #pullPolicy: Always
+    repository: 582888538834.dkr.ecr.ap-south-2.amazonaws.com/stanchrepo
+    tag: latest
     pullPolicy: Always
 
   gunicorn:
@@ -205,7 +208,8 @@ socketio:
     initialDelaySeconds: 5
     periodSeconds: 10
   image:
-    repository: frappe/frappe-socketio
+    #repository: frappe/frappe-socketio
+    repository: 582888538834.dkr.ecr.ap-south-2.amazonaws.com/stanchrepo
     tag: v14.0.2
     pullPolicy: Always
   resources: {}
