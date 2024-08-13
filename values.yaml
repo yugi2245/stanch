@@ -9,7 +9,7 @@ dbRootUser: "root"
 dbRootPassword: "Du4Y0G4iBHfU0rrgNHDJ"
 
 nginx:
-  replicaCount: 3
+  replicaCount: 1
   image:
     repository: frappe/erpnext-nginx
     tag: v14.0.0
@@ -56,7 +56,7 @@ worker:
     pullPolicy: Always
 
   gunicorn:
-    replicaCount: 3
+    replicaCount: 1
     livenessProbe:
       tcpSocket:
         port: 8000
@@ -94,7 +94,7 @@ worker:
     sidecars: []
 
   default:
-    replicaCount: 3
+    replicaCount: 1
     resources: {}
     nodeSelector: {}
     tolerations: []
@@ -110,7 +110,7 @@ worker:
     sidecars: []
 
   short:
-    replicaCount: 3
+    replicaCount: 1
     resources: {}
     nodeSelector: {}
     tolerations: []
@@ -126,7 +126,7 @@ worker:
     sidecars: []
 
   long:
-    replicaCount: 3
+    replicaCount: 1
     resources: {}
     nodeSelector: {}
     tolerations: []
@@ -142,7 +142,7 @@ worker:
     sidecars: []
 
   scheduler:
-    replicaCount: 3
+    replicaCount: 1
     resources: {}
     nodeSelector: {}
     tolerations: []
@@ -196,7 +196,7 @@ worker:
     periodSeconds: 5
 
 socketio:
-  replicaCount: 3
+  replicaCount: 1
   livenessProbe:
     tcpSocket:
       port: 9000
@@ -210,7 +210,7 @@ socketio:
   image:
     #repository: frappe/frappe-socketio
     repository: 582888538834.dkr.ecr.ap-south-2.amazonaws.com/stanchrepo
-    tag: v14.0.2
+    tag: latest
     pullPolicy: Always
   resources: {}
   nodeSelector: {}
@@ -326,7 +326,7 @@ jobs:
 #nameOverride: ""
 #fullnameOverride: ""
 
-fullnameOverride: 'stanchapp01'
+fullnameOverride: 'stanch1308'
 
 imagePullSecrets:
   - name: ecr-registry-secret
@@ -335,7 +335,7 @@ image:
   repository: 582888538834.dkr.ecr.ap-south-2.amazonaws.com/stanchrepo
   tag: latest
   pullPolicy: Always
-  replicaCount: 3
+  replicaCount: 1
 
 serviceAccount:
   # Specifies whether a service account should be created
