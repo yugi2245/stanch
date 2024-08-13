@@ -350,7 +350,7 @@ securityContext:
     - CAP_CHOWN
   # readOnlyRootFilesystem: true
   # runAsNonRoot: true
-  # runAsUser: 1000
+    runAsUser: 1000
 
 redis-cache:
   # https://github.com/bitnami/charts/tree/master/bitnami/redis
